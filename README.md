@@ -1,6 +1,6 @@
 # PROYECTO DE UNIDAD I - MOANA ASISSTANT - AN INNOVATIVE APPROACH TO FIRST AID WITH AI
 
-#Idea:
+# Idea:
 Identificacion de heridas con IA para primeros auxilios 
 
 # Integrantes: 
@@ -11,4 +11,4 @@ Identificacion de heridas con IA para primeros auxilios
 - Helbert Andres Condori Loayza(2020067571) ​
 - Diego Andre Aranda Reyes (2019063855)
   
-# Tecnologia: Maui, Dontnet, python 
+# Tecnologia: Maui, python 
