@@ -11,4 +11,4 @@ Identificacion de heridas con IA para primeros auxilios
 - Helbert Andres Condori Loayza(2020067571) ​
 - Diego Andre Aranda Reyes (2019063855)
   
-# Tecnologia: Maui, python 
+# Tecnologia: Maui, python, FastApi. Render, Redis, Docker, Supabase
