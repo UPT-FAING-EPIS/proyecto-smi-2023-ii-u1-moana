@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet
+    x:Class="Moana.Pages.SearchBottomPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+    Padding="16,32"
+    BackgroundColor="LightGray">
+    <the49:BottomSheet.Detents>
+        <the49:MediumDetent />
+    </the49:BottomSheet.Detents>
+    <VerticalStackLayout>
+        <Grid HorizontalOptions="Center" VerticalOptions="Start">
+            <Label
+                FontAttributes="Bold"
+                FontSize="25"
+                HorizontalOptions="Center"
+                Text="RESULT"
+                TextColor="#4d79ff" />
+            <Label x:Name="Resultado" Text="" />
+        </Grid>
+    </VerticalStackLayout>
+</the49:BottomSheet>

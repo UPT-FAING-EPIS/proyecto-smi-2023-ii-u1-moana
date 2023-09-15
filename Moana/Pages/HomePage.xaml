@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Moana.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="HomePage"
+    Shell.NavBarIsVisible="False">
+    <VerticalStackLayout
+        HorizontalOptions="FillAndExpand"
+        Spacing="20"
+        VerticalOptions="CenterAndExpand">
+
+        <Label
+            FontSize="24"
+            HorizontalOptions="CenterAndExpand"
+            Text="Welcome to Moana Assistant"
+            TextColor="Black" />
+
+        <Button
+            Clicked="Button_Clicked"
+            HorizontalOptions="CenterAndExpand"
+            Text="I have a issue"
+            VerticalOptions="End" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,9 +1,10 @@
-﻿namespace Moana;
-
-public partial class AppShell : Shell
+﻿namespace Moana
 {
-	public AppShell()
-	{
-		InitializeComponent();
-	}
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+        }
+    }
 }
