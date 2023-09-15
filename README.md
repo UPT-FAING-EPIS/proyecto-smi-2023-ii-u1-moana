@@ -7,8 +7,8 @@ Identificacion de heridas con IA para primeros auxilios
 
 - Erick Mauricio Mamani Lima (2020066321)
 - Sebastian Airton Cotrina Caceres (2020067569)​
-- Josue Amaya Torres(2020067149) ​
-- Helbert Andres Condori Loayza(2020067571) ​
+- Josue Amaya Torres (2020067149) ​
+- Helbert Andres Condori Loayza (2020067571) ​
 - Diego Andre Aranda Reyes (2019063855)
   
 # Tecnologia: Maui, python, FastApi, Render, Docker , Github Actions, MVVM, CI/CD, AI, RESTFUL, XCODE
