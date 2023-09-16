@@ -7,17 +7,26 @@
     Padding="16,32"
     BackgroundColor="LightGray">
     <the49:BottomSheet.Detents>
-        <the49:MediumDetent />
+        <the49:FullscreenDetent />
     </the49:BottomSheet.Detents>
-    <VerticalStackLayout>
-        <Grid HorizontalOptions="Center" VerticalOptions="Start">
-            <Label
-                FontAttributes="Bold"
-                FontSize="25"
-                HorizontalOptions="Center"
-                Text="RESULT"
-                TextColor="#4d79ff" />
-            <Label x:Name="Resultado" Text="" />
-        </Grid>
-    </VerticalStackLayout>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+            x:Name="Resultado"
+            FontAttributes="Bold"
+            FontSize="25"
+            HorizontalOptions="Center"
+            Text="RESULT: "
+            TextColor="#4d79ff" />
+                <Image Grid.Row="1" x:Name="PhotoSnap" HeightRequest="200" WidthRequest="200" ></Image>
+            </Grid>
+        </ScrollView>
+    </AbsoluteLayout>
 </the49:BottomSheet>

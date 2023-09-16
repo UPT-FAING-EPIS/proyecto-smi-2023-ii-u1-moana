@@ -14,23 +14,18 @@ public partial class SearchWound : ContentPage
     {
         try
         {
-            // Tomar una foto y obtener la secuencia
+            ImageSource streamPhotolocal = cameraView.GetSnapShot();
             Stream streamPhoto = await cameraView.TakePhotoAsync();
-
-            // Crear un MemoryStream para copiar la secuencia
             using (MemoryStream ms = new MemoryStream())
             {
                 await streamPhoto.CopyToAsync(ms);
                 byte[] photoBytes = ms.ToArray();
 
-                // Crear una ImageSource desde el arreglo de bytes
                 ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(photoBytes));
 
-                // Establecer la fuente de la Image
                 myImage.Source = imageSource;
 
-                // Realizar la solicitud POST al servidor
-                await UploadPhotoAsync(photoBytes);
+                await UploadPhotoAsync(photoBytes, streamPhotolocal);
             }
         }
         catch (Exception ex)
@@ -42,7 +37,7 @@ public partial class SearchWound : ContentPage
 
     private void cameraView_CamerasLoaded(object sender, EventArgs e)
     {
-        cameraView.Camera = cameraView.Cameras.First();// .Cameras[0];
+        cameraView.Camera = cameraView.Cameras.First();
         MainThread.BeginInvokeOnMainThread(async () =>
         {
             await cameraView.StopCameraAsync();
@@ -51,7 +46,7 @@ public partial class SearchWound : ContentPage
         });
     }
 
-    private async Task UploadPhotoAsync(byte[] photoBytes)
+    private async Task UploadPhotoAsync(byte[] photoBytes, ImageSource streamPhoto )
     {
         try
         {
@@ -59,14 +54,11 @@ public partial class SearchWound : ContentPage
             {
                 string apiUrl = "https://woundapi.onrender.com/predict/";
 
-                ByteArrayContent imageContent = new ByteArrayContent(photoBytes);
+                var content = new MultipartFormDataContent();
 
-                imageContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+                content.Add(new ByteArrayContent(photoBytes), "file", "photo.jpg");
 
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, apiUrl);
-                request.Content = imageContent;
-
-                HttpResponseMessage response = await client.SendAsync(request);
+                HttpResponseMessage response = await client.PostAsync(apiUrl, content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -74,17 +66,12 @@ public partial class SearchWound : ContentPage
                     Console.WriteLine("Respuesta del servidor:");
                     Console.WriteLine(responseContent);
 
-                    var page = new SearchBottomPage(responseContent);
+                    var page = new SearchBottomPage(responseContent, streamPhoto);
                     await page.ShowAsync();
                 }
                 else
                 {
                     Console.WriteLine($"Error en la solicitud HTTP: {response.StatusCode}");
-                    Console.WriteLine($"Error en la solicitud HTTP: {response}");
-
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    var page = new SearchBottomPage(responseContent);
-                    await page.ShowAsync();
                 }
             }
         }
@@ -93,5 +80,4 @@ public partial class SearchWound : ContentPage
             Console.WriteLine($"Error en la solicitud HTTP: {ex.Message}");
         }
     }
-
 }
