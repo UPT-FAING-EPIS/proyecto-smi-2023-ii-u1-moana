@@ -16,7 +16,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.moana</ApplicationId>
-		<ApplicationIdGuid>db604695-769e-4130-8354-5a53370993d3</ApplicationIdGuid>
+		<ApplicationIdGuid>432f9405-bae2-4263-afde-d42bcbaad821</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -49,26 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\doctor.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Camera.MAUI" Version="1.4.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="The49.Maui.BottomSheet" Version="1.0.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\HomePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SearchBottomPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SearchWound.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
