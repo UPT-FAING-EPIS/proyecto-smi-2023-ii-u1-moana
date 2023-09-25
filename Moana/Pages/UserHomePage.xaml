@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Moana.Pages.UserHomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="UserHomePage"
+    Shell.NavBarIsVisible="False">
+    <VerticalStackLayout
+        HorizontalOptions="FillAndExpand"
+        Spacing="20"
+        VerticalOptions="CenterAndExpand">
+        <Label
+            Margin="20,20,20,20"
+            FontAttributes="Bold"
+            FontSize="25"
+            Text="Hola usuario, Juan" />
+        <Button
+            x:Name="Prescripcionesbtn"
+            Clicked="Prescripcionesbtn_Clicked"
+            HorizontalOptions="CenterAndExpand"
+            Text="Ver mis prescripciones"
+            VerticalOptions="End" />
+        <Button
+            x:Name="pastillashorario"
+            Clicked="pastillashorario_Clicked"
+            HorizontalOptions="CenterAndExpand"
+            Text="Ver mis horarios pastillas"
+            VerticalOptions="End" />
+        <Button
+            Clicked="Button_Clicked"
+            HorizontalOptions="CenterAndExpand"
+            Text="Tengo un problema"
+            VerticalOptions="End" />
+
+    </VerticalStackLayout>
+</ContentPage>
