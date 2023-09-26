@@ -1,6 +1,7 @@
 ﻿using Postgrest.Attributes;
 using Postgrest.Models;
 namespace Moana.Models;
+
 [Table("usuarios")]
 public class User : BaseModel
 {

@@ -10,7 +10,6 @@
         Title="Home"
         ContentTemplate="{DataTemplate view:MainPageView}"
         Route="MainPageView" />
-
     <TabBar Route="MedicoTab">
         <ShellContent
             Title="ListadoPacientes"

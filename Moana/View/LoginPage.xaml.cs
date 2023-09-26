@@ -29,14 +29,20 @@ namespace Moana.View
 
             var isAuthenticated = await _authService.Authenticate(username, password);
 
-            if (isAuthenticated!="false")
+            if (isAuthenticated)
             {
-                var user = await _userService.GetUser(isAuthenticated);
-                ResultLabel.Text =  user.Model.rolId.ToString();
+                var user = await _userService.GetUser(username);
+                ResultLabel.Text = user.Model.rolId.ToString();
 
-                ResultLabel.Text = "Inicio de sesión exitoso!";
                 var appShell = new AppShell();
-                appShell.CurrentItem = appShell.Items.FirstOrDefault(item => item.Route == "MedicoTab");//PacienteTab
+                if (ResultLabel.Text == "2")
+                {
+                    appShell.CurrentItem = appShell.Items.FirstOrDefault(item => item.Route == "MedicoTab");
+                }
+                else
+                {
+                    appShell.CurrentItem = appShell.Items.FirstOrDefault(item => item.Route == "PacienteTab");
+                }
                 App.Current.MainPage = appShell;
             }
             else

@@ -3,6 +3,8 @@ using Plugin.LocalNotification;
 using The49.Maui.BottomSheet;
 using Supabase; // Import the Supabase namespace
 using Moana.View;
+using Camera.MAUI;
+
 namespace Moana
 {
     public static class MauiProgram
@@ -32,6 +34,7 @@ namespace Moana
             // Configurations
             builder.UseMauiApp<App>()
                    .UseLocalNotification()
+                   .UseMauiCameraView()
                    .UseBottomSheet()
                    .ConfigureFonts(fonts => ConfigureFonts(fonts));
 

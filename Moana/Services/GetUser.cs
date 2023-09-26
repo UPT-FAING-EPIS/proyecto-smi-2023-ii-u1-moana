@@ -1,4 +1,4 @@
-using Supabase;
+﻿using Supabase;
 using Supabase.Storage.Exceptions;
 using System;
 using System.Threading.Tasks;
@@ -21,15 +21,18 @@ namespace Moana
 
         public async Task<Postgrest.Responses.ModeledResponse<Moana.Models.User>> GetUser(string email)
         {
-            try{
+            try
+            {
                 var user = await _supabase
                     .From<User>()
                     .Select("name,rolid")
                     .Where(x => x.Email == email)
                     .Get();
                 return user;
-               
-            }catch{
+
+            }
+            catch
+            {
                 return null;
             }
         }
