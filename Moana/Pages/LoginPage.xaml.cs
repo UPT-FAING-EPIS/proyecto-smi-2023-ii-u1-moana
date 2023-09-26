@@ -1,18 +1,20 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 using System;
-
+using Moana.Models;
+using System.Text.Json;
 namespace Moana.Pages
 {
     public partial class LoginPage : ContentPage
     {
         private readonly AuthenticationService _authService;
-
-        public LoginPage(AuthenticationService authService)
+        private readonly UserService _userService;
+        public LoginPage(AuthenticationService authService, UserService userService)
         {
             InitializeComponent();
 
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -28,9 +30,11 @@ namespace Moana.Pages
 
             var isAuthenticated = await _authService.Authenticate(username, password);
 
-            if (isAuthenticated)
+            if (isAuthenticated!="false")
             {
-                ResultLabel.Text = "Inicio de sesión exitoso!";
+                var user = await _userService.GetUser(isAuthenticated);
+                ResultLabel.Text =  user.Model.rolId.ToString();
+
                 var vistaUser = new UserHomePage();
                 await Navigation.PushAsync(vistaUser);
             }

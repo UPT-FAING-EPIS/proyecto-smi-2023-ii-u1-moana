@@ -7,7 +7,7 @@ namespace Moana
 {
     public interface IAuthenticationService
     {
-        Task<bool> Authenticate(string email, string password);
+        Task<string> Authenticate(string email, string password);
     }
 
     public class AuthenticationService : IAuthenticationService
@@ -19,16 +19,20 @@ namespace Moana
             _supabase = supabase ?? throw new ArgumentNullException(nameof(supabase));
         }
 
-        public async Task<bool> Authenticate(string email, string password)
+        public async Task<string> Authenticate(string email, string password)
         {
             try{
                 var response = await _supabase.Auth.SignIn(email, password);
+                
+                Console.WriteLine(response.User);
                 if(response==null){
-                    return false;
+                    return "false";
                 }
-                return true;
+                
+                var user = _supabase.Auth.CurrentUser;
+                return user.Email;
             }catch{
-                return false;
+                return "false";
             }
         }
 
