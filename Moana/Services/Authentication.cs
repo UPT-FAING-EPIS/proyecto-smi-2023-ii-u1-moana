@@ -1,34 +1,36 @@
 ﻿using Supabase;
-using Websocket.Client;
+using Supabase.Storage.Exceptions;
+using System;
+using System.Threading.Tasks;
+
 namespace Moana
 {
-    public class AuthenticationService
+    public interface IAuthenticationService
+    {
+        Task<bool> Authenticate(string email, string password);
+    }
+
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly Supabase.Client _supabase;
-        public AuthenticationService()
+
+        public AuthenticationService(Supabase.Client supabase)
         {
-            var url = "https://aedefiwrqctkhakwuhqb.supabase.co/";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFlZGVmaXdycWN0a2hha3d1aHFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTU2MTQ4NTYsImV4cCI6MjAxMTE5MDg1Nn0.-Irt1RDGROoKmJyrNdcCUNiIuUMoZWcXP1QRDpPI0sM";
-            _supabase = new Supabase.Client(url, key);
+            _supabase = supabase ?? throw new ArgumentNullException(nameof(supabase));
         }
+
         public async Task<bool> Authenticate(string email, string password)
         {
-            try
-            {
-                var session = await _supabase.Auth.SignIn(email, password);
-                if (session == null)
-                {
+            try{
+                var response = await _supabase.Auth.SignIn(email, password);
+                if(response==null){
                     return false;
                 }
-                else
-                {
-                    return true;
-                }
-            }
-            catch
-            {
+                return true;
+            }catch{
                 return false;
             }
         }
+
     }
 }

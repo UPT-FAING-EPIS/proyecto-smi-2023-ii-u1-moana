@@ -1,23 +1,28 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
+using System;
 
-namespace Moana.Pages;
-   public partial class LoginPage : ContentPage
+namespace Moana.Pages
+{
+    public partial class LoginPage : ContentPage
     {
-        private readonly AuthenticationService _authService = new AuthenticationService();
+        private readonly AuthenticationService _authService;
 
-        public LoginPage()
+        public LoginPage(AuthenticationService authService)
         {
             InitializeComponent();
+
+            _authService = authService ?? throw new ArgumentNullException(nameof(authService));
         }
 
-        async void OnLoginButtonClicked(object sender, EventArgs e)
+        private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
             var username = UsernameEntry.Text;
             var password = PasswordEntry.Text;
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                ResultLabel.Text = "Introduce usuario y contrase�a.";
+                ResultLabel.Text = "Introduce usuario y contraseña.";
                 return;
             }
 
@@ -25,18 +30,14 @@ namespace Moana.Pages;
 
             if (isAuthenticated)
             {
-
-                ResultLabel.Text = "Inicio de sesi�n exitoso!";
-                //await Shell.Current.GoToAsync($"//{nameof(UserHomePage)}");
-                UserHomePage vistauser = new UserHomePage();
-                await App.Current.MainPage.Navigation.PushAsync(vistauser);
-                // HomePage vistaMedico = new HomePage();
-                // await App.Current.MainPage.Navigation.PushAsync(vistaMedico);
+                ResultLabel.Text = "Inicio de sesión exitoso!";
+                var vistaUser = new UserHomePage();
+                await Navigation.PushAsync(vistaUser);
             }
             else
             {
-
-                ResultLabel.Text = "Usuario o contrase�a incorrectos.";
+                ResultLabel.Text = "Usuario o contraseña incorrectos.";
             }
         }
     }
+}
