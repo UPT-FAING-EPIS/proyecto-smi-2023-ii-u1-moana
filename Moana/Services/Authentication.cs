@@ -21,7 +21,8 @@ namespace Moana
 
         public async Task<string> Authenticate(string email, string password)
         {
-            try{
+            try
+            {
                 var response = await _supabase.Auth.SignIn(email, password);
                 
                 Console.WriteLine(response.User);

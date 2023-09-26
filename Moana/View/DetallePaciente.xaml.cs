@@ -1,4 +1,4 @@
-namespace Moana.Pages;
+namespace Moana.View;
 
 public partial class DetallePaciente : ContentPage
 {

@@ -49,7 +49,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\ConcertOne-Regular.ttf" />
+	  <None Remove="Resources\Images\clock.svg" />
 	  <None Remove="Resources\Images\doctor.png" />
+	  <None Remove="Resources\Images\doctor.svg" />
+	  <None Remove="Resources\Images\document.svg" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\search.svg" />
+	  <None Remove="Resources\Images\user.svg" />
+	  <None Remove="Resources\Images\users.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,31 +69,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\DetallePaciente.xaml">
+	  <Compile Update="View\MainPageView.xaml.cs">
+	    <DependentUpon>MainPageView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\DetallePaciente.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\HomePage.xaml">
+	  <MauiXaml Update="View\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\HorarioPastillas.xaml">
+	  <MauiXaml Update="View\HorarioPastillas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ListadoPacientes.xaml">
+	  <MauiXaml Update="View\ListadoPacientes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\LoginPage.xaml">
+	  <MauiXaml Update="View\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Prescripciones.xaml">
+	  <MauiXaml Update="View\Prescripciones.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SearchBottomPage.xaml">
+	  <MauiXaml Update="View\SearchBottomPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SearchWound.xaml">
+	  <MauiXaml Update="View\SearchWound.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\UserHomePage.xaml">
+	  <MauiXaml Update="View\UserHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -1,7 +1,7 @@
 using System.IO;
 using System.Net.Http.Headers;
 
-namespace Moana.Pages;
+namespace Moana.View;
 
 public partial class SearchWound : ContentPage
 {

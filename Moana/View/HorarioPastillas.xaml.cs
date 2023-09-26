@@ -4,7 +4,7 @@ using Microsoft.Maui.Controls;
 using Plugin.LocalNotification;
 using Plugin.LocalNotification.AndroidOption;
 
-namespace Moana.Pages
+namespace Moana.View
 {
     public partial class HorarioPastillas : ContentPage
     {

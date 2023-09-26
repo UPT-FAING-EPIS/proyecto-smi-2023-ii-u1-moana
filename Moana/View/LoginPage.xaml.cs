@@ -1,9 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 using System;
-using Moana.Models;
-using System.Text.Json;
-namespace Moana.Pages
+
+namespace Moana.View
 {
     public partial class LoginPage : ContentPage
     {
@@ -35,8 +34,10 @@ namespace Moana.Pages
                 var user = await _userService.GetUser(isAuthenticated);
                 ResultLabel.Text =  user.Model.rolId.ToString();
 
-                var vistaUser = new UserHomePage();
-                await Navigation.PushAsync(vistaUser);
+                ResultLabel.Text = "Inicio de sesión exitoso!";
+                var appShell = new AppShell();
+                appShell.CurrentItem = appShell.Items.FirstOrDefault(item => item.Route == "MedicoTab");//PacienteTab
+                App.Current.MainPage = appShell;
             }
             else
             {
