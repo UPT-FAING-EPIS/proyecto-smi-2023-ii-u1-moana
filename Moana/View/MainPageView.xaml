@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Moana.View.MainPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#ffffff"
+    NavigationPage.BackButtonTitle=""
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid
+        Margin="0"
+        Padding="0"
+        BackgroundColor="white"
+        RowDefinitions="Auto, *, Auto">
+        <Label Grid.Row="1" Text="" />
+        <Grid
+            Grid.Row="2"
+            Margin="-2"
+            Padding="0">
+            <Path
+                Aspect="Fill"
+                Data="M 298.5711364746094 163.88433837890625 C 313.89910888671875 210.86251831054688 350.5541687011719 238.74026489257812 408.5362548828125 247.51756286621094 C 535.9747314453125 266.80914306640625 534.43505859375 370.0148010253906 535.9747314453125 393.3241271972656 C 540.5086059570312 461.9600830078125 583.463134765625 496.2780456542969 664.8382568359375 496.2780456542969 C 664.8382568359375 496.2780456542969 664.8382568359375 533.7476806640625 664.8382568359375 608.6869506835938 C 664.8382568359375 608.6869506835938 543.0919799804688 608.6869506835938 299.59942626953125 608.6869506835938 C 298.91387939453125 608.6869506835938 298.5711364746094 460.41943359375 298.5711364746094 163.88433837890625 Z "
+                Fill="#4d79ff"
+                VerticalOptions="End" />
+        </Grid>
+        <Image
+            Grid.Row="2"
+            HorizontalOptions="Start"
+            Source="doctor.svg"
+            VerticalOptions="End"
+            WidthRequest="250" />
+
+        <VerticalStackLayout Grid.Row="1">
+            <Frame
+                Margin="0,50,20,20"
+                Padding="0"
+                BackgroundColor="White"
+                BorderColor="White"
+                CornerRadius="30"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="350">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="ConcertOne"
+                        FontSize="70"
+                        Text="Moana:"
+                        TextColor="#4d79ff" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="ConcertOne"
+                        FontSize="60"
+                        Text="Tu salud."
+                        TextColor="#4d79ff" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="ConcertOne"
+                        FontSize="60"
+                        Text="Tu cuidado."
+                        TextColor="#4d79ff" />
+                </StackLayout>
+            </Frame>
+            <Frame
+                Grid.Row="1"
+                Margin="20,0,0,0"
+                BackgroundColor="#40bff2"
+                BorderColor="Transparent"
+                CornerRadius="25"
+                HasShadow="True"
+                HeightRequest="60"
+                HorizontalOptions="Start">
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    VerticalOptions="Center">
+                    <Label
+                        Margin="10,0,0,0"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        Text="Get Started"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" />
+                    <Image
+                        HeightRequest="40"
+                        HorizontalOptions="End"
+                        Source="right.svg"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

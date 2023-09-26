@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 using System;
 
-namespace Moana.Pages
+namespace Moana.View
 {
     public partial class LoginPage : ContentPage
     {
@@ -31,8 +31,9 @@ namespace Moana.Pages
             if (isAuthenticated)
             {
                 ResultLabel.Text = "Inicio de sesión exitoso!";
-                var vistaUser = new UserHomePage();
-                await Navigation.PushAsync(vistaUser);
+                var appShell = new AppShell();
+                appShell.CurrentItem = appShell.Items.FirstOrDefault(item => item.Route == "MedicoTab");//PacienteTab
+                App.Current.MainPage = appShell;
             }
             else
             {

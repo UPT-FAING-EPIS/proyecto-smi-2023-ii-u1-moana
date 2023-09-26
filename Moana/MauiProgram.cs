@@ -2,7 +2,7 @@
 using Plugin.LocalNotification;
 using The49.Maui.BottomSheet;
 using Supabase; // Import the Supabase namespace
-using Moana.Pages;
+using Moana.View;
 namespace Moana
 {
     public static class MauiProgram

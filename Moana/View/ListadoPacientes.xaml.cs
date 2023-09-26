@@ -1,6 +1,6 @@
 using Moana.Models;
 
-namespace Moana.Pages;
+namespace Moana.View;
 
 public partial class ListadoPacientes : ContentPage
 {

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Moana.Pages.Prescripciones"
+    x:Class="Moana.View.DetallePaciente"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Prescripciones"
-    Shell.NavBarIsVisible="False">
+    Title="DetallePaciente">
     <StackLayout Margin="20">
-        <Label FontSize="18" Text="Nombre del Paciente: Juan" />
+        <Label FontSize="18" Text="Nombre del Paciente:" />
         <Label x:Name="lblNombrePaciente" FontSize="16" />
 
         <Label
@@ -14,6 +13,7 @@
             FontSize="18"
             Text="Enfermedad: Gripe" />
         <Label x:Name="txtEnfermedad" FontSize="16" />
+
         <Label
             Margin="0,20,0,10"
             FontSize="18"

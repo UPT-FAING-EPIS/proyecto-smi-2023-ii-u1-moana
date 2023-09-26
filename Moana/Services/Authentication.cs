@@ -21,13 +21,17 @@ namespace Moana
 
         public async Task<bool> Authenticate(string email, string password)
         {
-            try{
+            try
+            {
                 var response = await _supabase.Auth.SignIn(email, password);
-                if(response==null){
+                if (response == null)
+                {
                     return false;
                 }
                 return true;
-            }catch{
+            }
+            catch
+            {
                 return false;
             }
         }

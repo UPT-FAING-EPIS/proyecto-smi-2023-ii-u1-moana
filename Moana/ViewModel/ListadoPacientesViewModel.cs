@@ -5,7 +5,7 @@ using System.Windows.Input;
 using Microsoft.Maui.Controls;
 using Moana.Models;
 
-namespace Moana.Pages
+namespace Moana.View
 {
     public class ListadoPacientesViewModel : BindableObject
     {

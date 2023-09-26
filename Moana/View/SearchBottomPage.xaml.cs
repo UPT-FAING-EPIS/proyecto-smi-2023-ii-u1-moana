@@ -1,6 +1,6 @@
 using The49.Maui.BottomSheet;
 
-namespace Moana.Pages;
+namespace Moana.View;
 
 public partial class SearchBottomPage : BottomSheet
 {
