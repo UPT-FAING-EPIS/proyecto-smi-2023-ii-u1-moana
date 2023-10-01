@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Moana.View.ListadoPacientes"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ListadoPacientes"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#007bff" />
+                <Setter Property="WidthRequest" Value="60" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Label
+            Padding="20"
+            FontAttributes="Bold"
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="Listado de pacientes" />
+        <Button
+            Margin="10"
+            BackgroundColor="#007bff"
+            Command="{Binding AddPatientCommand}"
+            CornerRadius="20"
+            HorizontalOptions="Start"
+            Text="Agregar Paciente"
+            WidthRequest="150" />
+        <ListView
+            x:Name="patientListView"
+            ItemTapped="OnPatientTapped"
+            ItemsSource="{Binding Patients}"
+            SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Name}" />
+                            <Button
+                                Margin="4"
+                                Padding="4"
+                                BackgroundColor="Orange"
+                                Command="{Binding EditCommand}"
+                                CornerRadius="15"
+                                Style="{StaticResource ButtonStyle}"
+                                Text="Editar" />
+                            <Button
+                                Margin="4"
+                                Padding="4"
+                                BackgroundColor="Red"
+                                Command="{Binding DeleteCommand}"
+                                CornerRadius="15"
+                                Style="{StaticResource ButtonStyle}"
+                                Text="Eliminar" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

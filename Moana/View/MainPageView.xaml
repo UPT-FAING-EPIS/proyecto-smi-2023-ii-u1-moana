@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Moana.View.MainPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#ffffff"
+    NavigationPage.BackButtonTitle=""
+    NavigationPage.HasNavigationBar="False">
+
+    <VerticalStackLayout Grid.Row="1">
+        <Frame
+            Margin="0,50,20,20"
+            Padding="0"
+            BackgroundColor="White"
+            BorderColor="White"
+            CornerRadius="30"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            WidthRequest="350">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="ConcertOne"
+                    FontSize="40"
+                    Text="Moana:"
+                    TextColor="#4d79ff" />
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="ConcertOne"
+                    FontSize="30"
+                    Text="Tu salud."
+                    TextColor="#4d79ff" />
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="ConcertOne"
+                    FontSize="30"
+                    Text="Tu cuidado."
+                    TextColor="#4d79ff" />
+            </StackLayout>
+        </Frame>
+        <Frame
+            Grid.Row="1"
+            Margin="20,0,0,0"
+            BackgroundColor="#40bff2"
+            BorderColor="Transparent"
+            CornerRadius="25"
+            HasShadow="True"
+            HeightRequest="60"
+            HorizontalOptions="Start">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Frame.GestureRecognizers>
+
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="10"
+                VerticalOptions="Center">
+                <Label
+                    Margin="10,0,0,0"
+                    FontSize="16"
+                    HorizontalOptions="Start"
+                    Text="Get Started"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+                <Image
+                    HeightRequest="40"
+                    HorizontalOptions="End"
+                    Source="right.svg"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+        <Button
+            x:Name="IrLogin"
+            Margin="20,20"
+            Clicked="IrLogin_Clicked"
+            Text="Si no funca el boton de arriba usar este" />
+    </VerticalStackLayout>
+
+</ContentPage>

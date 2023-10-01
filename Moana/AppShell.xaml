@@ -3,12 +3,32 @@
     x:Class="Moana.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Moana"
+    xmlns:view="clr-namespace:Moana.View"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate view:MainPageView}"
+        Route="MainPageView" />
+    <ShellContent
+        Title="ListadoPacientes"
+        ContentTemplate="{DataTemplate view:ListadoPacientes}"
+        Icon="users"
+        Route="ListadoPacientes" />
 
+    <ShellContent
+        Title="Prescripciones"
+        ContentTemplate="{DataTemplate view:Prescripciones}"
+        Icon="document"
+        Route="Prescripciones" />
+    <ShellContent
+        Title="UserHomePage"
+        ContentTemplate="{DataTemplate view:UserHomePage}"
+        Icon="home"
+        Route="UserHomePage" />
+    <ShellContent
+        Title="HorarioPastillas"
+        ContentTemplate="{DataTemplate view:HorarioPastillas}"
+        Icon="clock"
+        Route="HorarioPastillas" />
 </Shell>
