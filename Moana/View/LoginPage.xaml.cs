@@ -40,7 +40,7 @@ namespace Moana.View
 
                 await Navigation.PushAsync(new MedicoHomePage());
                 }
-                else if (rolUser.Equals("1")){
+                else if (rolUser.Equals("4")){
 
                     await Navigation.PushAsync(new UserHomePage());
                 }

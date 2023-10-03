@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Microsoft.Maui.Controls;
 using Moana.Models;
+using Supabase;
 
 namespace Moana.View
 {
     public class ListadoPacientesViewModel : BindableObject
     {
-        private ObservableCollection<Patient> patients;
-        private Patient selectedPatient;
+        private readonly Client _supabaseClient;
+
+        private ObservableCollection<User> patients;
+        private User selectedPatient;
 
         public ListadoPacientesViewModel()
         {
+            _supabaseClient = MauiProgram.CreateMauiApp().Services.GetRequiredService<Client>();
             LoadPatients();
             AddPatientCommand = new Command(OnAddPatientClicked);
             ShowPatientDetailsCommand = new Command(OnShowPatientDetails);
         }
 
-        public ObservableCollection<Patient> Patients
+        public ObservableCollection<User> Patients
         {
             get { return patients; }
             set
@@ -29,7 +30,7 @@ namespace Moana.View
             }
         }
 
-        public Patient SelectedPatient
+        public User SelectedPatient
         {
             get { return selectedPatient; }
             set
@@ -42,19 +43,16 @@ namespace Moana.View
         public ICommand AddPatientCommand { get; private set; }
         public ICommand ShowPatientDetailsCommand { get; private set; }
 
-        private void LoadPatients()
+        private async void LoadPatients()
         {
-            Patients = new ObservableCollection<Patient>
-            {
-                new Patient { Name = "Paciente 1" },
-                new Patient { Name = "Paciente 2" },
-                new Patient { Name = "Paciente 3" }
-            };
+            var userService = new UserService(_supabaseClient); 
+            var patientsList = await userService.GetPatients();
+            Patients = new ObservableCollection<User>(patientsList);
         }
 
         private void OnAddPatientClicked()
         {
-            var newPatient = new Patient { Name = "Nuevo Paciente" };
+            var newPatient = new User { Name = "Nuevo Paciente" }; 
             Patients.Add(newPatient);
         }
 
@@ -71,6 +69,5 @@ namespace Moana.View
                 SelectedPatient = null;
             }
         }
-
     }
 }

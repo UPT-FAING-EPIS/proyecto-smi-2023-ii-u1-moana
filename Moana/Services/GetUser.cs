@@ -36,6 +36,23 @@ namespace Moana
                 return null;
             }
         }
+        public async Task<List<User>> GetPatients()
+        {
+            try
+            {
+                var patients = await _supabase
+                    .From<User>()
+                    .Select("name")
+                    .Where(x => x.rolId == 4)
+                    .Get();
+                return patients.Models;
+            }
+            catch
+            {
+                return new List<User>();
+            }
+        }
+
 
     }
 }

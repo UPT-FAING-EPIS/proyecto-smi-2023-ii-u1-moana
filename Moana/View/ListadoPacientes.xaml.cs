@@ -12,7 +12,7 @@ public partial class ListadoPacientes : ContentPage
     }
     private void OnPatientTapped(object sender, ItemTappedEventArgs e)
     {
-        if (e.Item is Patient selectedPatient)
+        if (e.Item is User selectedPatient)
         {
             ((ListadoPacientesViewModel)BindingContext).SelectedPatient = selectedPatient;
             ((ListadoPacientesViewModel)BindingContext).ShowPatientDetailsCommand.Execute(null);
