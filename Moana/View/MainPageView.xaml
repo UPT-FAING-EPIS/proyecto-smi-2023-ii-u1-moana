@@ -71,11 +71,6 @@
                     VerticalOptions="Center" />
             </StackLayout>
         </Frame>
-        <Button
-            x:Name="IrLogin"
-            Margin="20,20"
-            Clicked="IrLogin_Clicked"
-            Text="Si no funca el boton de arriba usar este" />
     </VerticalStackLayout>
 
 </ContentPage>

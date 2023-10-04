@@ -20,8 +20,8 @@ namespace Moana.View
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            var email = EmailEntry.Text;
-            var password = PasswordEntry.Text;
+            var email = EmailEntry.Text.ToLower().Trim();
+            var password = PasswordEntry.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
@@ -35,14 +35,16 @@ namespace Moana.View
             {
                 var user = await _userService.GetUser(email);
                 var rolUser = user.Model.rolId.ToString();
-
+            
                 if (rolUser.Equals("2")){
 
-                await Navigation.PushAsync(new MedicoHomePage());
+                    await Navigation.PushAsync(new MedicoHomePage());
+                    Navigation.RemovePage(this);
                 }
                 else if (rolUser.Equals("4")){
 
                     await Navigation.PushAsync(new UserHomePage());
+                    Navigation.RemovePage(this);
                 }
                 else
                 {
@@ -52,8 +54,6 @@ namespace Moana.View
             }
             else
             {
-                await Navigation.PushAsync(new UserHomePage());
-
                 ResultLabel.Text = "Usuario o contraseña incorrectos.";
             }
         }

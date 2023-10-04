@@ -18,15 +18,7 @@ namespace Moana.View
             UserService userService = new UserService(_supabaseClient);
 
             await Navigation.PushAsync(new LoginPage(authService, userService));
-
-        }
-
-        private async void IrLogin_Clicked(object sender, EventArgs e)
-        {
-            AuthenticationService authService = new AuthenticationService(_supabaseClient);
-            UserService userService = new UserService(_supabaseClient);
-
-            await Navigation.PushAsync(new LoginPage(authService, userService));
+            Navigation.RemovePage(this);
         }
     }
 }

@@ -91,6 +91,9 @@
 	  <MauiXaml Update="View\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\NuevaPrescripcion.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Prescripciones.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

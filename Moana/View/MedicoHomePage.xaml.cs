@@ -5,24 +5,20 @@ public partial class MedicoHomePage : ContentPage
 	public MedicoHomePage()
 	{
 		InitializeComponent();
+        
 	}
 
     async private void Button_Clicked(object sender, EventArgs e)
     {
-
-        ListadoPacientes listapacientes = new ListadoPacientes();
-        await App.Current.MainPage.Navigation.PushAsync(listapacientes);
+        
+        await Navigation.PushAsync( new ListadoPacientes());
     }
 
     async private void Button_Clicked_1(object sender, EventArgs e)
     {
         ListadoPacientes listapacientes = new ListadoPacientes();
-        await App.Current.MainPage.Navigation.PushAsync(listapacientes);
+        await Navigation.PushAsync(new ListadoPacientes());
 
     }
 
-    private void Button_Clicked_2(object sender, EventArgs e)
-    {
-
-    }
 }

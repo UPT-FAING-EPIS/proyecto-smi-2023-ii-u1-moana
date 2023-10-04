@@ -4,7 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="HomePage"
-    Shell.NavBarIsVisible="False">
+    Shell.NavBarIsVisible="False"
+    NavigationPage.BackButtonTitle=""
+    NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout
         HorizontalOptions="FillAndExpand"
         Spacing="20"
@@ -13,23 +15,17 @@
         <Label
             FontSize="24"
             HorizontalOptions="CenterAndExpand"
-            Text="Welcome to Moana"
             TextColor="Black" />
 
         <Button
             Clicked="Button_Clicked"
             HorizontalOptions="CenterAndExpand"
             Text="Administrar citas"
-            VerticalOptions="End" />
+            VerticalOptions="Center" />
         <Button
             Clicked="Button_Clicked_1"
             HorizontalOptions="CenterAndExpand"
             Text="Administrar pacientes"
-            VerticalOptions="End" />
-        <Button
-            Clicked="Button_Clicked_2"
-            HorizontalOptions="CenterAndExpand"
-            Text="Administrar Prescripciones"
-            VerticalOptions="End" />
+            VerticalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

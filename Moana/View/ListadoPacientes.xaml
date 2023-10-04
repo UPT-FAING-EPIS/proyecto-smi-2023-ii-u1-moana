@@ -30,6 +30,7 @@
             Text="Agregar Paciente"
             WidthRequest="150" />
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+
             <ListView
                 x:Name="patientListView"
                 ItemTapped="OnPatientTapped"
@@ -38,33 +39,42 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="FillAndExpand"
-                                    HorizontalTextAlignment="Center"
-                                    Text="{Binding Name}" />
-                                <Button
-                                    Margin="4"
-                                    Padding="4"
-                                    BackgroundColor="Orange"
-                                    Command="{Binding EditCommand}"
-                                    CornerRadius="15"
-                                    Style="{StaticResource ButtonStyle}"
-                                    Text="Editar" />
-                                <Button
-                                    Margin="4"
-                                    Padding="4"
-                                    BackgroundColor="Red"
-                                    Command="{Binding DeleteCommand}"
-                                    CornerRadius="15"
-                                    Style="{StaticResource ButtonStyle}"
-                                    Text="Eliminar" />
-                            </StackLayout>
+                            <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="FillAndExpand"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Name}" />
+                                    <Button
+                                        Margin="4"
+                                        Padding="4"
+                                        BackgroundColor="Orange"
+                                        Command="{Binding EditCommand}"
+                                        CornerRadius="15"
+                                        Style="{StaticResource ButtonStyle}"
+                                        Text="Editar" />
+                                    <Button
+                                        Margin="4"
+                                        Padding="4"
+                                        BackgroundColor="Red"
+                                        Command="{Binding DeleteCommand}"
+                                        CornerRadius="15"
+                                        Style="{StaticResource ButtonStyle}"
+                                        Text="Eliminar" />
+                                </StackLayout>
+                            </SwipeView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
         </RefreshView>
     </StackLayout>
+
 </ContentPage>

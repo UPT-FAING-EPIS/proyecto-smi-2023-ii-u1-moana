@@ -13,22 +13,22 @@
     <ShellContent
         Title="ListadoPacientes"
         ContentTemplate="{DataTemplate view:ListadoPacientes}"
-        Icon="users"
         Route="ListadoPacientes" />
 
     <ShellContent
         Title="Prescripciones"
         ContentTemplate="{DataTemplate view:Prescripciones}"
-        Icon="document"
         Route="Prescripciones" />
     <ShellContent
         Title="UserHomePage"
         ContentTemplate="{DataTemplate view:UserHomePage}"
-        Icon="home"
         Route="UserHomePage" />
     <ShellContent
         Title="HorarioPastillas"
         ContentTemplate="{DataTemplate view:HorarioPastillas}"
-        Icon="clock"
         Route="HorarioPastillas" />
+        <ShellContent
+        Title="MedicoHomePage"
+        ContentTemplate="{DataTemplate view:MedicoHomePage}"
+        Route="MedicoHomePage" />
 </Shell>
