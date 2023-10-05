@@ -41,13 +41,7 @@ namespace Moana.View
 
             await Navigation.PushAsync(new LoginPage(authService, userService));
             Navigation.RemovePage(this);
-<<<<<<< HEAD
-
 
         }
-
-=======
-        }
->>>>>>> 5f0ae78305cd2c32d3b16350d8edef548f4a2e03
     }
 }

@@ -64,46 +64,6 @@
                     </Grid>
                 </Frame>
             </StackLayout>
-<<<<<<< HEAD
         </Grid>
     </Grid>
 </ContentPage>
-=======
-        </Frame>
-        <Frame
-            Grid.Row="1"
-            Margin="20,0,0,0"
-            BackgroundColor="#40bff2"
-            BorderColor="Transparent"
-            CornerRadius="25"
-            HasShadow="True"
-            HeightRequest="60"
-            HorizontalOptions="Start">
-
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-            </Frame.GestureRecognizers>
-
-            <StackLayout
-                HorizontalOptions="Center"
-                Orientation="Horizontal"
-                Spacing="10"
-                VerticalOptions="Center">
-                <Label
-                    Margin="10,0,0,0"
-                    FontSize="16"
-                    HorizontalOptions="Start"
-                    Text="Get Started"
-                    TextColor="White"
-                    VerticalOptions="CenterAndExpand" />
-                <Image
-                    HeightRequest="40"
-                    HorizontalOptions="End"
-                    Source="right.svg"
-                    VerticalOptions="Center" />
-            </StackLayout>
-        </Frame>
-    </VerticalStackLayout>
-
-</ContentPage>
->>>>>>> 5f0ae78305cd2c32d3b16350d8edef548f4a2e03
