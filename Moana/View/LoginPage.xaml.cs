@@ -35,6 +35,19 @@ namespace Moana.View
             {
                 var user = await _userService.GetUser(email);
                 var rolUser = user.Model.rolId.ToString();
+<<<<<<< HEAD
+                var nameUser = user.Model.Name.ToString();
+
+                if (rolUser.Equals("2")){
+
+                    await Navigation.PushAsync(new MedicoHomePage(nameUser));
+                    Navigation.RemovePage(this);
+
+                }
+                else if (rolUser.Equals("4")){
+
+                    await Navigation.PushAsync(new UserHomePage(nameUser));
+=======
             
                 if (rolUser.Equals("2")){
 
@@ -44,6 +57,7 @@ namespace Moana.View
                 else if (rolUser.Equals("4")){
 
                     await Navigation.PushAsync(new UserHomePage());
+>>>>>>> 5f0ae78305cd2c32d3b16350d8edef548f4a2e03
                     Navigation.RemovePage(this);
                 }
                 else

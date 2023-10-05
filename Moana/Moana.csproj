@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\ConcertOne-Regular.ttf" />
+	  <None Remove="Resources\Fonts\fontello.ttf" />
 	  <None Remove="Resources\Images\clock.svg" />
 	  <None Remove="Resources\Images\doctor.png" />
 	  <None Remove="Resources\Images\doctor.svg" />

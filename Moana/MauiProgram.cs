@@ -47,6 +47,7 @@ namespace Moana
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             fonts.AddFont("ConcertOne-Regular.ttf", "ConcertOne");
+            fonts.AddFont("fontello.ttf", "fontello");
         }
 
         private static void ConfigureEntryHandler()

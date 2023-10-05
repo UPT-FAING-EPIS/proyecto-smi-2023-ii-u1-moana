@@ -26,10 +26,10 @@
             <Entry x:Name="Titulotxt" Placeholder="Título" />
             <Entry x:Name="Contenidotxt" Placeholder="Contenido" />
 
-            <TimePicker
+            <Entry
                 x:Name="timePicker"
-                Margin="0,20"
-                VerticalOptions="Center" />
+                Keyboard="Numeric"
+                Placeholder="Ingrese el intervalo de su medicamento" />
 
             <Button
                 x:Name="CounterBtn"

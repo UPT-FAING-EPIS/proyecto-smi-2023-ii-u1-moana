@@ -11,14 +11,43 @@ namespace Moana.View
             _supabaseClient = MauiProgram.CreateMauiApp().Services.GetRequiredService<Client>();
 
         }
-
-        private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        private async void InAnimation()
         {
+            await Task.WhenAll
+            (
+                this.mainFrame.ScaleTo(10, 0),
+                this.mainFrame.FadeTo(0, 0)
+            );
+
+            await Task.WhenAll
+            (
+                this.mainFrame.ScaleTo(1, 500, Easing.SinIn),
+                this.mainFrame.FadeTo(0.7, 500, Easing.SinOut)
+            );
+        }
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Titulolbl.TextColor = Color.Parse("#44AAF6");
+            Titulolbl.TextColor = Color.Parse("#4d79ff");
+            FrameTab.IsVisible = false;
+            await Task.WhenAll
+            (
+                this.mainFrame.FadeTo(0, 200, Easing.SinIn),
+                this.mainFrame.ScaleTo(10, 200, Easing.SinOut)
+            );
+
             AuthenticationService authService = new AuthenticationService(_supabaseClient);
             UserService userService = new UserService(_supabaseClient);
 
             await Navigation.PushAsync(new LoginPage(authService, userService));
             Navigation.RemovePage(this);
+<<<<<<< HEAD
+
+
         }
+
+=======
+        }
+>>>>>>> 5f0ae78305cd2c32d3b16350d8edef548f4a2e03
     }
 }

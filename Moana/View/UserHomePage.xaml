@@ -4,7 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="UserHomePage"
+<<<<<<< HEAD
+=======
     Shell.NavBarIsVisible="False"
+>>>>>>> 5f0ae78305cd2c32d3b16350d8edef548f4a2e03
     NavigationPage.BackButtonTitle=""
     NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout
@@ -12,19 +15,18 @@
         Spacing="20"
         VerticalOptions="CenterAndExpand">
         <Label
-            Margin="20,20,20,20"
-            FontAttributes="Bold"
-            FontSize="25"
-            Text="Hola usuario, Juan" />
+            FontSize="24"
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding Saludo}"
+            TextColor="Black" />
+
         <Button
-            x:Name="Prescripcionesbtn"
-            Clicked="Prescripcionesbtn_Clicked"
+            Command="{Binding PrescripcionesCommand}"
             HorizontalOptions="CenterAndExpand"
             Text="Ver mis prescripciones"
             VerticalOptions="End" />
         <Button
-            x:Name="pastillashorario"
-            Clicked="pastillashorario_Clicked"
+            Command="{Binding HorariosPastillasCommand}"
             HorizontalOptions="CenterAndExpand"
             Text="Ver mis horarios pastillas"
             VerticalOptions="End" />

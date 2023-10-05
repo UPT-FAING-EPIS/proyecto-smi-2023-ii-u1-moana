@@ -1,7 +1,16 @@
+
 namespace Moana.View;
 
 public partial class MedicoHomePage : ContentPage
 {
+<<<<<<< HEAD
+    public MedicoHomePage(string nameuser)
+    {
+        InitializeComponent();
+        BindingContext = new MedicoHomePageViewModel();
+        ((MedicoHomePageViewModel)BindingContext).NameUser = nameuser.ToUpper();
+    }
+=======
 	public MedicoHomePage()
 	{
 		InitializeComponent();
@@ -21,4 +30,5 @@ public partial class MedicoHomePage : ContentPage
 
     }
 
+>>>>>>> 5f0ae78305cd2c32d3b16350d8edef548f4a2e03
 }

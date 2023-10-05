@@ -11,52 +11,64 @@ namespace Moana.View
         public HorarioPastillas()
         {
             InitializeComponent();
-            timePicker.Time = DateTime.Now.TimeOfDay;
         }
-
         private async void OnCounterClicked(object sender, EventArgs e)
         {
             String Titulo = Titulotxt.Text;
             String Contenido = Contenidotxt.Text;
-            DateTime selectedDate = DateTime.Now;
-            TimeSpan selectedTime = timePicker.Time;
+            var selectedTime = int.TryParse(timePicker.Text, out int selectedHour);
 
-            DateTime scheduledDateTime = selectedDate.Date + selectedTime; // Combinar fecha y hora
-
-            var request = new NotificationRequest
+            if (selectedTime && selectedHour >= 0 && selectedHour <= 9)
             {
-                NotificationId = 1337,
-                Title = Titulo,
-                Subtitle = Contenido,
-                Description = Contenido,
-                ReturningData = Contenido,
-                BadgeNumber = 1,
-                Schedule = new NotificationRequestSchedule
+                DateTime now = DateTime.Now;
+
+                DateTime scheduledDateTime = now.AddHours(selectedHour);
+
+                if (now > scheduledDateTime)
                 {
-                    NotifyTime = scheduledDateTime,
-                },
-                Android = new AndroidOptions
-                {
-                    AutoCancel = false,
+                    scheduledDateTime = scheduledDateTime.AddDays(1);
                 }
-            };
 
-            if (await LocalNotificationCenter.Current.Show(request))
+                var request = new NotificationRequest
+                {
+                    NotificationId = 1337,
+                    Title = Titulo,
+                    Subtitle = Contenido,
+                    Description = Contenido,
+                    ReturningData = Contenido,
+                    BadgeNumber = 1,
+                    Schedule = new NotificationRequestSchedule
+                    {
+                        NotifyTime = scheduledDateTime,
+                    },
+                    Android = new AndroidOptions
+                    {
+                        AutoCancel = false,
+                    }
+                };
+
+                if (await LocalNotificationCenter.Current.Show(request))
+                {
+
+                    statusLabel.Text = "La alarma sonará a las " + scheduledDateTime;
+                    statusLabel.IsVisible = true;
+
+                    Vibration.Vibrate();
+
+                    await Task.Delay(5000);
+                    Vibration.Cancel();
+
+                    await Task.Delay(3000);
+                    statusLabel.IsVisible = false;
+                }
+                else
+                {
+
+                }
+            }
+            else
             {
-                TimeSpan timeUntilAlarm = scheduledDateTime - DateTime.Now;
-
-                string timeUntilAlarmText = FormatTimeSpan(timeUntilAlarm);
-
-                statusLabel.Text = "La alarma sonará en " + timeUntilAlarmText;
-                statusLabel.IsVisible = true;
-
-                Vibration.Vibrate();
-
-                await Task.Delay(5000); 
-                Vibration.Cancel();
-
-                await Task.Delay(3000);
-                statusLabel.IsVisible = false;
+                Console.WriteLine("Entrada de tiempo no válida");
             }
         }
 

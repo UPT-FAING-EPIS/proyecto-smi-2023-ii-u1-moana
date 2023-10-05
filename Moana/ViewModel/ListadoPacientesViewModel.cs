@@ -18,52 +18,17 @@ namespace Moana.View
         public ListadoPacientesViewModel()
         {
             _supabaseClient = MauiProgram.CreateMauiApp().Services.GetRequiredService<Client>();
-
+            InitializeCommands();
             LoadPatients();
-            AddPatientCommand = new Command(OnAddPatientClicked);
-            ShowPatientDetailsCommand = new Command(OnShowPatientDetails);
-            RefreshCommand = new Command(async () => await OnRefresh());
         }
 
         public ObservableCollection<User> Patients
         {
-            get { return patients; }
+            get => patients;
             set
             {
                 patients = value;
                 OnPropertyChanged();
-            }
-        }
-
-        public ICommand RefreshCommand { get; private set; }
-
-        public bool IsRefreshing
-        {
-            get { return isRefreshing; }
-            set
-            {
-                isRefreshing = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private async Task OnRefresh()
-        {
-            IsRefreshing = true;
-
-            await ReloadPatients();
-
-            IsRefreshing = false;
-        }
-
-        private async Task ReloadPatients()
-        {
-            var userService = new UserService(_supabaseClient);
-            var patientsList = await userService.GetPatients();
-            Patients.Clear();
-            foreach (var patient in patientsList)
-            {
-                Patients.Add(patient); 
             }
         }
 
@@ -77,8 +42,44 @@ namespace Moana.View
             }
         }
 
+        public ICommand RefreshCommand { get; private set; }
         public ICommand AddPatientCommand { get; private set; }
         public ICommand ShowPatientDetailsCommand { get; private set; }
+
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set
+            {
+                isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void InitializeCommands()
+        {
+            RefreshCommand = new Command(async () => await OnRefresh());
+            AddPatientCommand = new Command(OnAddPatientClicked);
+            ShowPatientDetailsCommand = new Command(OnShowPatientDetails);
+        }
+
+        private async Task OnRefresh()
+        {
+            IsRefreshing = true;
+            await ReloadPatients();
+            IsRefreshing = false;
+        }
+
+        private async Task ReloadPatients()
+        {
+            var userService = new UserService(_supabaseClient);
+            var patientsList = await userService.GetPatients();
+            Patients.Clear();
+            foreach (var patient in patientsList)
+            {
+                Patients.Add(patient);
+            }
+        }
 
         private async void LoadPatients()
         {
@@ -98,11 +99,8 @@ namespace Moana.View
             if (SelectedPatient != null)
             {
                 var detallePacientePage = new DetallePaciente();
-
                 detallePacientePage.SetPatientName(SelectedPatient.Name);
-
                 await App.Current.MainPage.Navigation.PushAsync(detallePacientePage);
-
                 SelectedPatient = null;
             }
         }
