@@ -1,7 +1,7 @@
-# PROYECTO DE UNIDAD I - MOANA - AN INNOVATIVE APPROACH TO FIRST AID WITH AI
+# PROYECTO DE UNIDAD I - MOANA TRACKER-
 
 # Idea:
-Identificacion de heridas con IA para primeros auxilios 
+App de Seguimiento de Salud
 
 # Integrantes: 
 
@@ -11,4 +11,4 @@ Identificacion de heridas con IA para primeros auxilios
 - Helbert Andres Condori Loayza (2020067571) ​
 - Diego Andre Aranda Reyes (2019063855)
   
-# Tecnologia: Maui, python, FastApi, Render, Docker , Github Actions, MVVM, CI/CD, AI, RESTFUL, XCODE
+# Tecnologia: Maui, python, SupaBase, Docker , Github Actions, MVVM, CI/CD, AI, RESTFUL, XCODE
