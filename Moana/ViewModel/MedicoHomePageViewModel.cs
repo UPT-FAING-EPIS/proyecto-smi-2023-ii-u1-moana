@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace Moana.View
@@ -8,6 +9,7 @@ namespace Moana.View
         public ICommand AdministrarCitasCommand { get; private set; }
         public ICommand ListadoPacientesCommand { get; private set; }
         public ICommand AdministrarPrescripCommand { get; private set; }
+        public ObservableCollection<CarouselItem> CarouselItems { get; set; }
 
         private string nameUser;
 
@@ -16,6 +18,33 @@ namespace Moana.View
             AdministrarCitasCommand = new Command(AdministrarCitas);
             ListadoPacientesCommand = new Command(ListadoPacientes);
             AdministrarPrescripCommand = new Command(AdministrarPrescripciones);
+            CarouselItems = new ObservableCollection<CarouselItem>
+            {
+                new CarouselItem
+                {
+                    Command = AdministrarCitasCommand,
+                    Text = "Administrar Citas",
+                    ImageSource = "book_medical.svg"
+                },
+                new CarouselItem
+                {
+                    Command = ListadoPacientesCommand,
+                    Text = "Administrar Pacientes",
+                    ImageSource = "users_medical.svg"
+                },
+                new CarouselItem
+                {
+                    Command = AdministrarPrescripCommand,
+                    Text = "Administrar Prescripciones",
+                    ImageSource = "clipboard_list_check.svg"
+                }
+            };
+        }
+        public class CarouselItem
+        {
+            public ICommand Command { get; set; }
+            public string Text { get; set; }
+            public string ImageSource { get; set; }
         }
 
         public string NameUser
@@ -54,7 +83,7 @@ namespace Moana.View
 
         private async void AdministrarCitas()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ListadoPacientes());
+            await Application.Current.MainPage.Navigation.PushAsync(new AdministrarCitas());
         }
 
         private async void ListadoPacientes()
@@ -62,9 +91,9 @@ namespace Moana.View
             await Application.Current.MainPage.Navigation.PushAsync(new ListadoPacientes());
         }
 
-        private void AdministrarPrescripciones()
+        private async void AdministrarPrescripciones()
         {
-            // Implementa la navegación a la página de administración de prescripciones aquí.
+            await Application.Current.MainPage.Navigation.PushAsync(new NuevaPrescripcion());
         }
     }
 }

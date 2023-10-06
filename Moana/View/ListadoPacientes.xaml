@@ -30,43 +30,34 @@
             Text="Agregar Paciente"
             WidthRequest="150" />
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
-
             <ListView
                 x:Name="patientListView"
                 ItemTapped="OnPatientTapped"
                 ItemsSource="{Binding Patients}"
-                SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">
+                SelectedItem="{Binding SelectedPatient, Mode=OneWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems>
-                                    <SwipeItem Text="Delete" />
-                                </SwipeItems>
-                            </SwipeView.RightItems>
-                                <StackLayout Orientation="Horizontal">
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            BackgroundColor="Orange"
+                                            Command="{Binding EditCommand}"
+                                            IconImageSource="user_pen.svg" />
+                                        <SwipeItem
+                                            BackgroundColor="Red"
+                                            Command="{Binding DeleteCommand}"
+                                            IconImageSource="trash.svg" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <StackLayout BackgroundColor="White" Orientation="Horizontal">
                                     <Label
+                                        Padding="10"
                                         FontAttributes="Bold"
-                                        HorizontalOptions="FillAndExpand"
+                                        HorizontalOptions="Center"
                                         HorizontalTextAlignment="Center"
                                         Text="{Binding Name}" />
-                                    <Button
-                                        Margin="4"
-                                        Padding="4"
-                                        BackgroundColor="Orange"
-                                        Command="{Binding EditCommand}"
-                                        CornerRadius="15"
-                                        Style="{StaticResource ButtonStyle}"
-                                        Text="Editar" />
-                                    <Button
-                                        Margin="4"
-                                        Padding="4"
-                                        BackgroundColor="Red"
-                                        Command="{Binding DeleteCommand}"
-                                        CornerRadius="15"
-                                        Style="{StaticResource ButtonStyle}"
-                                        Text="Eliminar" />
                                 </StackLayout>
                             </SwipeView>
                         </ViewCell>

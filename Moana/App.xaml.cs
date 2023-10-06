@@ -8,8 +8,6 @@ namespace Moana
         public App()
         {
             InitializeComponent();
-
-
             MainPage = new NavigationPage(new MainPageView());
 
         }

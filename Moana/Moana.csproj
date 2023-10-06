@@ -51,14 +51,27 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\ConcertOne-Regular.ttf" />
 	  <None Remove="Resources\Fonts\fontello.ttf" />
+	  <None Remove="Resources\Images\angle_left.svg" />
+	  <None Remove="Resources\Images\angle_right.svg" />
+	  <None Remove="Resources\Images\bars_staggered.svg" />
+	  <None Remove="Resources\Images\bell.svg" />
+	  <None Remove="Resources\Images\book_medical.svg" />
+	  <None Remove="Resources\Images\clipboard_list_check.svg" />
 	  <None Remove="Resources\Images\clock.svg" />
+	  <None Remove="Resources\Images\cowbell.svg" />
 	  <None Remove="Resources\Images\doctor.png" />
 	  <None Remove="Resources\Images\doctor.svg" />
 	  <None Remove="Resources\Images\document.svg" />
 	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\icons8_home.svg" />
+	  <None Remove="Resources\Images\man_user.svg" />
+	  <None Remove="Resources\Images\phone_flip.svg" />
 	  <None Remove="Resources\Images\search.svg" />
+	  <None Remove="Resources\Images\trash.svg" />
 	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Images\users.svg" />
+	  <None Remove="Resources\Images\users_medical.svg" />
+	  <None Remove="Resources\Images\user_pen.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -68,6 +81,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="UserShell.xaml.cs">
+	    <DependentUpon>UserShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\MedicoHomePage.xaml.cs">
 	    <DependentUpon>MedicoHomePage.xaml</DependentUpon>
 	  </Compile>
@@ -77,6 +93,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="MedicoShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\AdministrarCitas.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\DetallePaciente.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -96,6 +118,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Prescripciones.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\RecomendacionIA.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\UserHomePage.xaml">

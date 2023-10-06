@@ -45,6 +45,7 @@
                 x:Name="EmailEntry"
                 BackgroundColor="White"
                 FontSize="16"
+                Keyboard="Email"
                 Placeholder="Usuario"
                 VerticalOptions="CenterAndExpand" />
         </Frame>

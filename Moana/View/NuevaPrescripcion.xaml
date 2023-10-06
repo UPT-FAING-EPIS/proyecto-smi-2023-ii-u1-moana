@@ -1,12 +1,95 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Moana.View.NuevaPrescripcion"
-             Title="NuevaPrescripcion">
-    <VerticalStackLayout>
-        <Label Text="Ingrese el nombre del usuario">
+<ContentPage
+    x:Class="Moana.View.NuevaPrescripcion"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="">
+    <StackLayout Padding="20" Spacing="15">
+        <Label
+            Margin="0,0,0,20"
+            FontAttributes="Bold"
+            FontSize="25"
+            Text="Nueva prescripcion" />
 
-        </Label>
+        <Frame
+            Margin="0,0,0,10"
+            Padding="5"
+            BorderColor="Black"
+            CornerRadius="15">
+            <Entry
+                x:Name="DniEntry"
+                Margin="10,0,0,0"
+                Keyboard="Numeric"
+                Placeholder="DNI" />
+        </Frame>
 
-    </VerticalStackLayout>
+        <BoxView
+            Margin="0,15,0,15"
+            BackgroundColor="LightGray"
+            HeightRequest="2"
+            HorizontalOptions="FillAndExpand" />
+        <Frame
+            Margin="0,0,0,10"
+            Padding="5"
+            BorderColor="Black"
+            CornerRadius="15">
+            <Entry
+                x:Name="NombreEntry"
+                Margin="10,0,0,0"
+                Placeholder="Nombre" />
+        </Frame>
+
+        <Frame
+            Margin="0,0,0,10"
+            Padding="5"
+            BorderColor="Black"
+            CornerRadius="15">
+            <Entry
+                x:Name="ApellidoEntry"
+                Margin="10,0,0,0"
+                Placeholder="Apellido" />
+        </Frame>
+
+        <Frame
+            Margin="0,0,0,10"
+            Padding="5"
+            BorderColor="Black"
+            CornerRadius="15">
+            <Entry
+                x:Name="EdadEntry"
+                Margin="10,0,0,0"
+                Keyboard="Numeric"
+                Placeholder="Edad" />
+        </Frame>
+
+        <Frame
+            Margin="0,0,0,10"
+            Padding="5"
+            BorderColor="Black"
+            CornerRadius="15">
+            <Entry
+                x:Name="CorreoEntry"
+                Margin="10,0,0,0"
+                Keyboard="Email"
+                Placeholder="Correo" />
+        </Frame>
+        <Frame
+            Margin="0,0,0,10"
+            Padding="5"
+            BorderColor="Black"
+            CornerRadius="15">
+            <Entry
+                x:Name="DiagnosticoEntry"
+                Margin="10,0,0,0"
+                Placeholder="Diagnostico" />
+        </Frame>
+        <Button
+            Padding="15"
+            BackgroundColor="#007AFF"
+            Clicked="Button_Clicked"
+            CornerRadius="20"
+            HorizontalOptions="End"
+            Text="Siguiente →"
+            TextColor="White" />
+    </StackLayout>
 </ContentPage>

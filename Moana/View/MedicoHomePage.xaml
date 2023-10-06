@@ -1,37 +1,90 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="Moana.View.MedicoHomePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="HomePage"
+    Title=""
     NavigationPage.BackButtonTitle=""
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
-    <VerticalStackLayout
-        HorizontalOptions="FillAndExpand"
-        Spacing="20"
-        VerticalOptions="CenterAndExpand">
+    <Grid Padding="5" RowDefinitions="auto,*">
+        <Grid Padding="0,15,0,0" ColumnDefinitions="*,4*,*,*">
+            <ImageButton
+                x:Name="bars"
+                Grid.Column="0"
+                Clicked="bars_Clicked"
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                Source="bars_staggered.svg" />
+            <ImageButton
+                x:Name="search"
+                Grid.Column="2"
+                Clicked="search_Clicked"
+                HeightRequest="25"
+                HorizontalOptions="CenterAndExpand"
+                Source="search.svg" />
+            <ImageButton
+                x:Name="bells"
+                Grid.Column="3"
+                Clicked="bells_Clicked"
+                HeightRequest="25"
+                HorizontalOptions="End"
+                Source="bell.svg" />
+        </Grid>
+        <Grid Grid.Row="1" Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Margin="10,50,0,20"
+                FontFamily="OpenSansRegular"
+                FontSize="24"
+                HorizontalOptions="Start"
+                Text="{Binding Saludo}"
+                TextColor="Black" />
+            <VerticalStackLayout Grid.Row="1">
+                <CarouselView
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding CarouselItems}"
+                    VerticalOptions="CenterAndExpand">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout
+                            ItemSpacing="10"
+                            Orientation="Horizontal"
+                            SnapPointsAlignment="Center"
+                            SnapPointsType="MandatorySingle" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="5"
+                                BackgroundColor="#00a4e6"
+                                CornerRadius="20">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Command}" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout>
+                                    <Label
+                                        Margin="0,5,0,10"
+                                        FontSize="18"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding Text}"
+                                        TextColor="White" />
+                                    <Image
+                                        HeightRequest="100"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="{Binding ImageSource}"
+                                        WidthRequest="75" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
 
-        <Label
-            FontSize="24"
-            HorizontalOptions="CenterAndExpand"
-            Text="{Binding Saludo}"
-            TextColor="Black" />
 
-        <Button
-            Command="{Binding AdministrarCitasCommand}"
-            HorizontalOptions="CenterAndExpand"
-            Text="Administrar citas"
-            VerticalOptions="Center" />
-        <Button
-            Command="{Binding ListadoPacientesCommand}"
-            HorizontalOptions="CenterAndExpand"
-            Text="Administrar pacientes"
-            VerticalOptions="End" />
-        <Button
-            Command="{Binding AdministrarPrescripCommand}"
-            HorizontalOptions="CenterAndExpand"
-            Text="Administrar Prescripciones"
-            VerticalOptions="End" />
-    </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+
 </ContentPage>

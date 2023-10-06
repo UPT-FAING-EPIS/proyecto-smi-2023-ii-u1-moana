@@ -8,6 +8,8 @@ namespace Moana
     public interface IUserService
     {
         Task<Postgrest.Responses.ModeledResponse<Moana.Models.User>> GetUser(string email);
+        Task<List<User>> GetPatients();
+        Task<(bool success, string errorMessage)> CreatePatient(string email, string password, string name);
     }
 
     public class UserService : IUserService
@@ -53,6 +55,55 @@ namespace Moana
             }
         }
 
+        public async Task<(bool success, string errorMessage)> CreatePatient(string email, string password, string name)
+        {
+            try
+            {
+                var existingUser = await _supabase
+                    .From<User>()
+                    .Select("id")
+                    .Where(x => x.Email == email)
+                    .Get();
+                Console.WriteLine(existingUser.ToString());
+                if (existingUser == null)
+                {
+                    var user = new User
+                    {
+                        Email = email,
+                        Name = name,
+                    };
 
+                    var insertResult = await _supabase
+                        .From<User>()
+                        .Insert(user);
+                    Console.WriteLine(insertResult.Model.ToString());
+                    if (insertResult != null)
+                    {
+                       
+                        var session = await _supabase.Auth.SignUp(email, password);
+
+                        if (session != null)
+                        {
+                            return (true, null); 
+                        }
+                        else
+                        {
+
+                            await _supabase
+                            .From<User>()
+                            .Where(x => x.Email == email)
+                            .Delete();
+                            return (false, "Error al registrar al usuario en la autenticación de Supabase.");
+                        }
+                    }
+                }
+
+                return (false, "Ya existe un usuario con el mismo correo electrónico.");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message); 
+            }
+        }
     }
 }

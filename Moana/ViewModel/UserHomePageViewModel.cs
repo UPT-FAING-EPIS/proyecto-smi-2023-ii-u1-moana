@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Collections.ObjectModel; 
 
 namespace Moana.View
 {
@@ -11,12 +12,35 @@ namespace Moana.View
     {
         public ICommand PrescripcionesCommand { get; private set; }
         public ICommand HorariosPastillasCommand { get; private set; }
+        public ObservableCollection<CarouselItem> CarouselItems { get; private set; }
 
         private string nameUser;
         public UserHomePageViewModel()
         {
             PrescripcionesCommand = new Command(Prescripciones);
             HorariosPastillasCommand = new Command(HorariosPastillas);
+            CarouselItems = new ObservableCollection<CarouselItem>
+            {
+                new CarouselItem
+                {
+                    Command =  PrescripcionesCommand,
+                    Text = "Ver prescripciones",
+                    ImageSource = "book_medical.svg"
+                },
+                new CarouselItem
+                {
+                    Command = HorariosPastillasCommand,
+                    Text = "Ver horarios pastillas",
+                    ImageSource = "users_medical.svg"
+                }                
+            };
+        }
+
+        public class CarouselItem
+        {
+            public ICommand Command { get; set; }
+            public string Text { get; set; }
+            public string ImageSource { get; set; }
         }
 
         public string NameUser

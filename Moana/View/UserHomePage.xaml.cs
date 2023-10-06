@@ -8,6 +8,23 @@ public partial class UserHomePage : ContentPage
         BindingContext = new UserHomePageViewModel();
         ((UserHomePageViewModel)BindingContext).NameUser = nameuser.ToUpper();
     }
+
+    private async void bars_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPageView());
+
+        Navigation.RemovePage(this);
+
+    }
+
+    private void search_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void bells_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
 
-  
