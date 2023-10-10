@@ -4,7 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="">
-    <StackLayout Padding="20" Spacing="15">
+       <ScrollView>
+
+    <VerticalStackLayout Padding="20" Spacing="15">
         <Label
             Margin="0,0,0,20"
             FontAttributes="Bold"
@@ -14,7 +16,7 @@
         <Frame
             Margin="0,0,0,10"
             Padding="5"
-            BorderColor="Black"
+            BorderColor="Gray"
             CornerRadius="15">
             <Entry
                 x:Name="DniEntry"
@@ -31,7 +33,7 @@
         <Frame
             Margin="0,0,0,10"
             Padding="5"
-            BorderColor="Black"
+            BorderColor="Gray"
             CornerRadius="15">
             <Entry
                 x:Name="NombreEntry"
@@ -42,7 +44,7 @@
         <Frame
             Margin="0,0,0,10"
             Padding="5"
-            BorderColor="Black"
+            BorderColor="Gray"
             CornerRadius="15">
             <Entry
                 x:Name="ApellidoEntry"
@@ -53,7 +55,7 @@
         <Frame
             Margin="0,0,0,10"
             Padding="5"
-            BorderColor="Black"
+            BorderColor="Gray"
             CornerRadius="15">
             <Entry
                 x:Name="EdadEntry"
@@ -65,7 +67,7 @@
         <Frame
             Margin="0,0,0,10"
             Padding="5"
-            BorderColor="Black"
+            BorderColor="Gray"
             CornerRadius="15">
             <Entry
                 x:Name="CorreoEntry"
@@ -76,7 +78,7 @@
         <Frame
             Margin="0,0,0,10"
             Padding="5"
-            BorderColor="Black"
+            BorderColor="Gray"
             CornerRadius="15">
             <Entry
                 x:Name="DiagnosticoEntry"
@@ -91,5 +93,7 @@
             HorizontalOptions="End"
             Text="Siguiente →"
             TextColor="White" />
-    </StackLayout>
+    </VerticalStackLayout>
+       </ScrollView>
+
 </ContentPage>
