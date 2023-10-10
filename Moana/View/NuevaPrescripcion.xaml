@@ -10,7 +10,7 @@
         <Label
             Margin="0,0,0,20"
             FontAttributes="Bold"
-            FontSize="25"
+            FontSize="26"
             Text="Nueva prescripcion" />
 
         <Frame
