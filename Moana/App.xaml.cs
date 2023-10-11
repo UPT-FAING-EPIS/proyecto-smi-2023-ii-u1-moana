@@ -8,7 +8,8 @@ namespace Moana
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPageView());
+            var erick = "erick";
+            MainPage = new NavigationPage(new MedicoHomePage(erick));
 
         }
     }

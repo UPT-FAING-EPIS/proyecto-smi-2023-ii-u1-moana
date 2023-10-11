@@ -7,7 +7,7 @@
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
     <Grid Padding="5" RowDefinitions="auto,*">
-        <Grid Padding="0,15,0,0" ColumnDefinitions="*,4*,*,*">
+        <Grid Padding="0,10,0,0" ColumnDefinitions="*,4*,*,*">
             <ImageButton
                 x:Name="bars"
                 Grid.Column="0"
@@ -30,7 +30,7 @@
                 HorizontalOptions="End"
                 Source="bell.svg" />
         </Grid>
-        <Grid Grid.Row="1" Padding="15">
+        <Grid Grid.Row="1" Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -44,27 +44,27 @@
                 Text="{Binding Saludo}"
                 TextColor="Black" />
             <VerticalStackLayout Grid.Row="1">
-                <CarouselView
-                    HorizontalOptions="FillAndExpand"
-                    ItemsSource="{Binding CarouselItems}"
-                    VerticalOptions="CenterAndExpand">
-                    <CarouselView.ItemsLayout>
-                        <LinearItemsLayout
-                            ItemSpacing="10"
-                            Orientation="Horizontal"
-                            SnapPointsAlignment="Center"
-                            SnapPointsType="MandatorySingle" />
-                    </CarouselView.ItemsLayout>
+                <CarouselView IndicatorView="indicatorView" ItemsSource="{Binding CarouselItems}">
+
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Frame
+                                Margin="10"
                                 Padding="5"
                                 BackgroundColor="#00a4e6"
-                                CornerRadius="20">
+                                BorderColor="Transparent"
+                                CornerRadius="20"
+                                HeightRequest="160"
+                                HorizontalOptions="Center"
+                                MaximumHeightRequest="260"
+                                MinimumHeightRequest="100"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="260">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Command}" />
                                 </Frame.GestureRecognizers>
                                 <StackLayout>
+
                                     <Label
                                         Margin="0,5,0,10"
                                         FontSize="18"
@@ -75,13 +75,17 @@
                                         HeightRequest="100"
                                         HorizontalOptions="CenterAndExpand"
                                         Source="{Binding ImageSource}"
-                                        WidthRequest="75" />
+                                        WidthRequest="60" />
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
-
+                <IndicatorView
+                    x:Name="indicatorView"
+                    HorizontalOptions="Center"
+                    IndicatorColor="LightGray"
+                    SelectedIndicatorColor="DarkGray" />
 
             </VerticalStackLayout>
         </Grid>
