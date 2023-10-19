@@ -22,7 +22,7 @@
             Margin="20,50,20,20"
             HeightRequest="100"
             HorizontalOptions="CenterAndExpand"
-            Source="dotnet_bot"
+            Source="health_care.png"
             VerticalOptions="CenterAndExpand" />
 
         <Label

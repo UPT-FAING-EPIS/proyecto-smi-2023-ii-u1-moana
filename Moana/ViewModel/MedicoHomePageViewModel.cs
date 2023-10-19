@@ -93,7 +93,7 @@ namespace Moana.View
 
         private async void AdministrarPrescripciones()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new NuevaPrescripcion());
+            await Application.Current.MainPage.Navigation.PushAsync(new AdministrarPrescripciones());
         }
     }
 }

@@ -53,6 +53,8 @@
 	  <None Remove="Resources\Fonts\fontello.ttf" />
 	  <None Remove="Resources\Images\angle_left.svg" />
 	  <None Remove="Resources\Images\angle_right.svg" />
+	  <None Remove="Resources\Images\angulo_izquierdo.png" />
+	  <None Remove="Resources\Images\angulo_izquierdo.svg" />
 	  <None Remove="Resources\Images\bars_staggered.svg" />
 	  <None Remove="Resources\Images\bell.svg" />
 	  <None Remove="Resources\Images\book_medical.svg" />
@@ -62,16 +64,22 @@
 	  <None Remove="Resources\Images\doctor.png" />
 	  <None Remove="Resources\Images\doctor.svg" />
 	  <None Remove="Resources\Images\document.svg" />
+	  <None Remove="Resources\Images\health_care.png" />
 	  <None Remove="Resources\Images\home.svg" />
 	  <None Remove="Resources\Images\icons8_home.svg" />
 	  <None Remove="Resources\Images\man_user.svg" />
 	  <None Remove="Resources\Images\phone_flip.svg" />
+	  <None Remove="Resources\Images\puerta_abierta.png" />
 	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\trash.svg" />
+	  <None Remove="Resources\Images\tratamiento.png" />
+	  <None Remove="Resources\Images\tratamiento.svg" />
 	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Images\users.svg" />
 	  <None Remove="Resources\Images\users_medical.svg" />
 	  <None Remove="Resources\Images\user_pen.svg" />
+	  <None Remove="Resources\Images\usuario_hospital.png" />
+	  <None Remove="Resources\Images\usuario_hospital.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -97,6 +105,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\AdministrarCitas.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\AdministrarPrescripciones.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\DetallePaciente.xaml">

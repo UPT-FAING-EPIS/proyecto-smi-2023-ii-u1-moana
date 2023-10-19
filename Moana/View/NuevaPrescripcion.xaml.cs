@@ -12,7 +12,7 @@ public partial class NuevaPrescripcion : ContentPage
 
 	}
 
-	async private void Button_Clicked(object sender, EventArgs e)
+    async private void Button_Clicked(object sender, EventArgs e)
 	{
         string email = CorreoEntry.Text;
         string password = "admin"; 
@@ -31,5 +31,10 @@ public partial class NuevaPrescripcion : ContentPage
 
             // await DisplayAlert("Error", errorMessage, "OK");
         }
+    }
+
+    private void Back_Tapped(object sender, TappedEventArgs e)
+    {
+        Navigation.PopAsync();
     }
 }

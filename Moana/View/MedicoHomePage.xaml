@@ -3,18 +3,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title=""
+    BackgroundColor="#EDF2F3"
     NavigationPage.BackButtonTitle=""
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
     <Grid Padding="5" RowDefinitions="auto,*">
         <Grid Padding="0,10,0,0" ColumnDefinitions="*,4*,*,*">
             <ImageButton
-                x:Name="bars"
+                x:Name="puerta"
                 Grid.Column="0"
-                Clicked="bars_Clicked"
+                Clicked="puerta_Clicked"
                 HeightRequest="25"
                 HorizontalOptions="Start"
-                Source="bars_staggered.svg" />
+                Source="puerta_abierta.png" />
             <ImageButton
                 x:Name="search"
                 Grid.Column="2"

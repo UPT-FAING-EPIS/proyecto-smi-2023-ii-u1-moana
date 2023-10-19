@@ -21,4 +21,9 @@ public partial class ListadoPacientes : ContentPage
         }
     }
 
+    private void Back_Tapped(object sender, TappedEventArgs e)
+    {
+        Navigation.PopAsync();
+
+    }
 }

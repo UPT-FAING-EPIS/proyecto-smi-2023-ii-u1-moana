@@ -4,6 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="ListadoPacientes"
+    BackgroundColor="#EDF2F3"
+    NavigationPage.BackButtonTitle=""
+    NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,6 +18,33 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
+        <Frame
+            Margin="0,10,0,10"
+            Padding="5"
+            BackgroundColor="#EDF2F3"
+            BorderColor="Transparent"
+            HorizontalOptions="Start"
+            WidthRequest="130">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                    x:Name="Back"
+                    NumberOfTapsRequired="1"
+                    Tapped="Back_Tapped" />
+            </Frame.GestureRecognizers>
+            <Grid ColumnDefinitions="Auto,Auto">
+                <ImageButton
+                    HeightRequest="15"
+                    HorizontalOptions="Start"
+                    Source="angulo_izquierdo.png"
+                    WidthRequest="25" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansRegular"
+                    FontSize="18"
+                    Text="Back" />
+            </Grid>
+        </Frame>
         <Label
             Padding="20"
             FontAttributes="Bold"

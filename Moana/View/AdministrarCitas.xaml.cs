@@ -26,4 +26,8 @@ public partial class AdministrarCitas : ContentPage
         public string Hora { get; set; }
     }
 
+    private void Back_Tapped(object sender, TappedEventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }

@@ -9,7 +9,7 @@ public partial class UserHomePage : ContentPage
         ((UserHomePageViewModel)BindingContext).NameUser = nameuser.ToUpper();
     }
 
-    private async void bars_Clicked(object sender, EventArgs e)
+    private async void puerta_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPageView());
 
