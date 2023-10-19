@@ -67,15 +67,15 @@ namespace Moana.View
                 var now = DateTime.Now;
                 if (now.Hour >= 0 && now.Hour < 12)
                 {
-                    return "Buenos días, " + NameUser;
+                    return "Buenos días, Dr. " + NameUser;
                 }
                 else if (now.Hour >= 12 && now.Hour < 18)
                 {
-                    return "Buenas tardes, " + NameUser;
+                    return "Buenas tardes, Dr. " + NameUser;
                 }
                 else
                 {
-                    return "Buenas noches, " + NameUser;
+                    return "Buenas noches, Dr. " + NameUser;
                 }
             }
         }

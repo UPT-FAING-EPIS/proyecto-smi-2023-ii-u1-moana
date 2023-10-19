@@ -14,23 +14,23 @@ public partial class MedicoHomePage : ContentPage
 
     }
 
-    private void bells_Clicked(object sender, EventArgs e)
-    {
-        DisplayAlert("Notifications", "Notis", "OK");
-
-    }
-
-    private void search_Clicked(object sender, EventArgs e)
-    {
-        DisplayAlert("Search", "Search", "OK");
-
-    }
-
     private async void puerta_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPageView());
 
         Navigation.RemovePage(this);
+
+    }
+
+    private void config_Clicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Config", "Config", "OK");
+
+    }
+
+    private void user_Clicked(object sender, EventArgs e)
+    {
+        DisplayAlert("User", "User", "OK");
 
     }
 }

@@ -17,12 +17,12 @@ public partial class UserHomePage : ContentPage
 
     }
 
-    private void search_Clicked(object sender, EventArgs e)
+    private void config_Clicked(object sender, EventArgs e)
     {
 
     }
 
-    private void bells_Clicked(object sender, EventArgs e)
+    private void user_Clicked(object sender, EventArgs e)
     {
 
     }

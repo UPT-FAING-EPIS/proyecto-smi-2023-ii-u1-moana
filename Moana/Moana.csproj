@@ -51,6 +51,8 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\ConcertOne-Regular.ttf" />
 	  <None Remove="Resources\Fonts\fontello.ttf" />
+	  <None Remove="Resources\Images\ajustes.png" />
+	  <None Remove="Resources\Images\ajustes.svg" />
 	  <None Remove="Resources\Images\angle_left.svg" />
 	  <None Remove="Resources\Images\angle_right.svg" />
 	  <None Remove="Resources\Images\angulo_izquierdo.png" />
@@ -70,6 +72,7 @@
 	  <None Remove="Resources\Images\man_user.svg" />
 	  <None Remove="Resources\Images\phone_flip.svg" />
 	  <None Remove="Resources\Images\puerta_abierta.png" />
+	  <None Remove="Resources\Images\puerta_abierta.svg" />
 	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\trash.svg" />
 	  <None Remove="Resources\Images\tratamiento.png" />

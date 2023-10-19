@@ -15,21 +15,21 @@
                 Clicked="puerta_Clicked"
                 HeightRequest="25"
                 HorizontalOptions="Start"
-                Source="puerta_abierta.png" />
+                Source="puerta_abierta.svg" />
             <ImageButton
-                x:Name="search"
+                x:Name="user"
                 Grid.Column="2"
-                Clicked="search_Clicked"
+                Clicked="user_Clicked"
                 HeightRequest="25"
                 HorizontalOptions="CenterAndExpand"
-                Source="search.svg" />
+                Source="circulo_usuario.svg" />
             <ImageButton
-                x:Name="bells"
+                x:Name="config"
                 Grid.Column="3"
-                Clicked="bells_Clicked"
+                Clicked="config_Clicked"
                 HeightRequest="25"
                 HorizontalOptions="End"
-                Source="bell.svg" />
+                Source="ajustes.svg" />
         </Grid>
         <Grid Grid.Row="1" Padding="10">
             <Grid.RowDefinitions>
