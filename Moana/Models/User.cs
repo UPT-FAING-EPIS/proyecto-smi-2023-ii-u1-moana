@@ -12,8 +12,16 @@ public class User : BaseModel
     [Column("email")]
     public string Email { get; set; }
 
+    [Column("password")]
+    public string Password { get; set; }
+
+    [Column("token")]
+    public string Token { get; set; }
+
     [Column("rolid")]
     public int rolId { get; set; }
 
+    [Column("estadoid")]
+    public int Estado { get; set; }
 
 }

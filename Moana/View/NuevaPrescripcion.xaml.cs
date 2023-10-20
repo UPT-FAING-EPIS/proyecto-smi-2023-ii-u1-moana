@@ -15,11 +15,11 @@ public partial class NuevaPrescripcion : ContentPage
     async private void Button_Clicked(object sender, EventArgs e)
 	{
         string email = CorreoEntry.Text;
-        string password = "admin"; 
+        string password = "upt2023"; 
         string name = NombreEntry.Text;
         var userService = new UserService(_supabaseClient);
         
-        var (success, errorMessage) = await userService.CreatePatient(email, password, name);
+        var (success, errorMessage) = await userService.CreateUser(email, password, name);
 
         if (success)
         {
