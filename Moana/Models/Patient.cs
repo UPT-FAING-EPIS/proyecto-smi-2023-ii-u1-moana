@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Postgrest.Attributes;
+using Postgrest.Models;
+namespace Moana.Models;
 
-namespace Moana.Models
+
+[Table("Paciente")]
+
+class Paciente : BaseModel
 {
-    public class Patient
-    {
-        public string Name { get; set; }
+    [PrimaryKey("id")]
+    public int Id { get; set; }
 
-    }
+    [Column("nombre")]
+    public string nombre { get; set; }
+    
+    [Column("apellido")]
+    public string apellido { get; set; }
+
+    [Column("fkidUsuario")]
+    public string fkidUsuario { get; set; }
+
 }
