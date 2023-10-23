@@ -5,7 +5,7 @@ namespace Moana.Models;
 
 [Table("Prescripcion")]
 
-class Prescripcion : BaseModel
+public class Prescripcion : BaseModel
 {
     [PrimaryKey("id")]
     public int Id { get; set; }
