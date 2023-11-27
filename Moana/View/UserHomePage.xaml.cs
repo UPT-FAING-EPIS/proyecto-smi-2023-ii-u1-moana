@@ -17,14 +17,15 @@ public partial class UserHomePage : ContentPage
 
     }
 
-    private void config_Clicked(object sender, EventArgs e)
+    private void user_Clicked(object sender, EventArgs e)
     {
+        Navigation.PushAsync(new UserConfig());
 
     }
 
-    private void user_Clicked(object sender, EventArgs e)
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-
+        Navigation.PushAsync(new DetallePrescripcion());
     }
 }
 

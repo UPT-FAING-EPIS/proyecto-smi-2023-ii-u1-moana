@@ -1,5 +1,4 @@
 
-using static Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific.VisualElement;
 
 namespace Moana.View;
 
@@ -14,23 +13,16 @@ public partial class MedicoHomePage : ContentPage
 
     }
 
-    private async void puerta_Clicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new MainPageView());
-
-        Navigation.RemovePage(this);
-
-    }
-
-    private void config_Clicked(object sender, EventArgs e)
-    {
-        DisplayAlert("Config", "Config", "OK");
-
-    }
-
     private void user_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("User", "User", "OK");
+        Navigation.PushAsync(new UserConfig());
+    }
 
+    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        if (Parent is FlyoutPage flyoutPage)
+        {
+            flyoutPage.IsPresented = !flyoutPage.IsPresented;
+        }
     }
 }
