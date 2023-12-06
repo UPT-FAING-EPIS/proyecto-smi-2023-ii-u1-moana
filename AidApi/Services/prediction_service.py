@@ -13,5 +13,5 @@ class PredictionService:
         tensor = tensor.to(self.device)
         output = self.model(tensor)
         _, predicted = torch.max(output.data, 1)
-        classes = ['Abrasions', 'Bruises', 'Burns', 'Cut', 'Ingrown_nails', 'Laceration', 'Stab_wound']
+        classes = ['Raspon', 'Moreton', 'Quemadura', 'Corte', 'Uña encarnada', 'Laceracion', 'Puñalada']
         return classes[predicted.item()]
